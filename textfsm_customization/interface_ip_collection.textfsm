@@ -1,0 +1,19 @@
+Value IP_MASK (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value IP_LENGTH (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2})
+
+
+Start
+ ^ip\saddress\s${IP_MASK} -> Record
+ ^ip\saddress\s${IP_LENGTH} -> Record
+
+
+# 垃圾, 废弃. TextFSM并不适用所有文字处理需求
+# Value INTERFACE (.*\d{1,})
+# Value List IP_MASK (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\s\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+# Value List IP_LENGTH (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2})
+#
+#
+# Start
+#  ^interface\s${INTERFACE} -> Continue.Record
+#  ^ip\saddress\s${IP_MASK} -> Record
+#  ^ip\saddress\s${IP_LENGTH} -> Record

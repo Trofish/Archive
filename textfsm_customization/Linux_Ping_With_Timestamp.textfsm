@@ -1,0 +1,36 @@
+Value Day (\d{1,2})
+Value Mon ([A-Z|a-z]{3})
+Value Hour (\d{2})
+Value Min (\d{2})
+Value Sec (\d{2})
+Value Latency (\d{1,4})
+
+Start
+ ^[A-Z|a-z]{3}\s*${Day}\s${Mon}\s.*${Hour}:${Min}:${Sec}\s.*time=${Latency} -> Record
+
+
+### Another instance
+#
+#Value Day (\d{2})
+#Value Mon ([A-Z|a-z]{3})
+#Value Hour (\d{2})
+#Value Min (\d{2})
+#Value Sec (\d{2})
+#Value Meridian ([A|P]M)
+#Value Latency (\d{1,4})
+#
+#Start
+# ^[A-Z|a-z]{3}\s*${Day}\s${Mon}\s.*${Hour}:${Min}:${Sec}\s${Meridian}.*time=${Latency} -> Record
+#
+
+
+
+### Annotation: For constant ping result from Windows CMD.
+
+# Sun 29 Aug 06:57:55 UTC 2021: PING 10.248.0.45 (10.248.0.45) 56(84) bytes of data.
+# Sun 29 Aug 06:57:55 UTC 2021: 64 bytes from 10.248.0.45: icmp_seq=1 ttl=53 time=274 ms
+# Sun 29 Aug 06:57:56 UTC 2021: 64 bytes from 10.248.0.45: icmp_seq=2 ttl=53 time=274 ms
+# Sun 29 Aug 06:57:57 UTC 2021: 64 bytes from 10.248.0.45: icmp_seq=3 ttl=53 time=274 ms
+# Sun 29 Aug 06:57:58 UTC 2021: 64 bytes from 10.248.0.45: icmp_seq=4 ttl=53 time=274 ms
+# Sun 29 Aug 06:57:59 UTC 2021: 64 bytes from 10.248.0.45: icmp_seq=5 ttl=53 time=274 ms
+# Sun 29 Aug 06:58:00 UTC 2021: 64 bytes from 10.248.0.45: icmp_seq=6 ttl=53 time=274 ms

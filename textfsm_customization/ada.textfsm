@@ -1,0 +1,56 @@
+Value Time ((\d{2}):(\d{2}):(\d{2}).(\d{1,3}))
+Value Percentage (\d{1,3})
+Value Min (\d{1,4})
+Value Avg (\d{1,4})
+Value Max (\d{1,4})
+
+
+Start
+ ^${Time} .* 2023$$
+ ^Success rate is\s${Percentage}.*min/avg/max=${Min}/${Avg}/${Max}.* -> Record
+
+
+
+
+
+### Annotation: For constant ping result from Cisco IOS.
+
+# SSH@ABC-CO-01#show clock
+# 11:00:05.250 GMT+04 Mon Feb 13 2023
+# SSH@ABC-CO-01#
+# SSH@ABC-CO-01# ping 8.8.8.8 source 10.x.x.1 count 5
+# Sending 5, 16-byte ICMP Echo to 8.8.8.8, timeout 5000 msec, TTL 64
+# Type Control-c to abort
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Success rate is 100 percent (5/5), round-trip min/avg/max=123/123/123 ms.
+# SSH@ABC-CO-01#show clock
+# 11:00:26.221 GMT+04 Mon Feb 13 2023
+# SSH@ABC-CO-01#
+# SSH@ABC-CO-01# ping 8.8.8.8 source 10.x.x.1 count 5
+# Sending 5, 16-byte ICMP Echo to 8.8.8.8, timeout 5000 msec, TTL 64
+# Type Control-c to abort
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=138ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=124ms TTL=114
+# Success rate is 100 percent (5/5), round-trip min/avg/max=123/126/138 ms.
+# SSH@ABC-CO-01#show clock
+# 11:00:47.257 GMT+04 Mon Feb 13 2023
+# SSH@ABC-CO-01#
+# SSH@ABC-CO-01# ping 8.8.8.8 source 10.x.x.1 count 5
+# Sending 5, 16-byte ICMP Echo to 8.8.8.8, timeout 5000 msec, TTL 64
+# Type Control-c to abort
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=124ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=128ms TTL=114
+# Reply from 8.8.8.8         : bytes=16 time=123ms TTL=114
+# Success rate is 100 percent (5/5), round-trip min/avg/max=123/124/128 ms.
+# SSH@ABC-CO-01#show clock
+# 11:01:08.271 GMT+04 Mon Feb 13 2023
+# SSH@ABC-CO-01#

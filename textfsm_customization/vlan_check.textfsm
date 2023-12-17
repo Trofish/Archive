@@ -1,0 +1,10 @@
+Value VLAN_ID (^vlan\s\d{1,4})
+Value STP_Enable (.*)
+Value Loop_Detection (.*-)
+
+
+Start
+ ^${VLAN_ID} .* by port$$
+ ^${STP_Enable}tree 802-1w$$
+ ^${Loop_Detection}detection$$ -> Continue.Record
+

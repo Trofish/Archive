@@ -1,0 +1,4 @@
+Value SPEED (\d+)
+
+Start
+ ^\s+5\s+minute\s+output\s+rate\s+${SPEED}\s+bits -> Record

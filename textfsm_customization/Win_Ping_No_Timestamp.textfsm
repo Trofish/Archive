@@ -1,0 +1,57 @@
+Value Percentage (\d{1,3})
+Value Min (\d{1,4})
+Value Avg (\d{1,4})
+Value Max (\d{1,4})
+
+
+Start
+ ^\s*Packets.*\(${Percentage}%\sloss\),$$
+ ^\s*Minimum = ${Min}ms, Maximum = ${Max}ms, Average = ${Avg}ms$$ -> Record
+
+
+
+
+
+
+### Annotation: For constant ping result from Windows CMD.
+
+# 23-02-21_08:00:07
+# Pinging 8.8.8.8 with 32 bytes of data:
+# Reply from 8.8.8.8: bytes=32 time=125ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=125ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=127ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=127ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=125ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=127ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=127ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+#
+# Ping statistics for 8.8.8.8:
+#     Packets: Sent = 10, Received = 10, Lost = 0 (0% loss),
+# Approximate round trip times in milli-seconds:
+#     Minimum = 125ms, Maximum = 127ms, Average = 126ms
+#
+#
+#
+# 23-02-21_08:00:27
+# Pinging 8.8.8.8 with 32 bytes of data:
+# Reply from 8.8.8.8: bytes=32 time=124ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=124ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=124ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=125ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=125ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=125ms TTL=114
+# Reply from 8.8.8.8: bytes=32 time=126ms TTL=114
+#
+# Ping statistics for 8.8.8.8:
+#     Packets: Sent = 10, Received = 10, Lost = 0 (0% loss),
+# Approximate round trip times in milli-seconds:
+#     Minimum = 124ms, Maximum = 126ms, Average = 125ms
+
+
+

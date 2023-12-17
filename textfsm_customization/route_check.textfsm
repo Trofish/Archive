@@ -1,0 +1,8 @@
+Value Dst ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/[0-9]{1,2})
+Value List Interface (Ethernet[0-9]{1,2}/[0-9]{1})
+
+
+Start
+ ^\s([O|B]) -> Continue.Record
+ ^\s([O|B])\s.* ${Dst} .*${Interface}$$
+ ^\s.*via\s.*${Interface}$$

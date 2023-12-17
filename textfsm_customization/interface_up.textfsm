@@ -1,0 +1,8 @@
+Value Interface (.*\S)
+
+Start
+ ^${Interface}\s*unassigned.*up\s*up\s* -> Record
+
+
+
+

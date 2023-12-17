@@ -1,0 +1,24 @@
+Value Month (\d{1,2})
+Value Day1 (\d{1,2})
+Value Hour (\d{1,2})
+Value Min (\d{2})
+Value Sec (\d{2})
+Value Day2 ([A-Z]{2})
+Value Latency (\d{1,4})
+
+Start
+ ^${Month}/${Day1}/2023\s*${Hour}:${Min}:${Sec}\s*${Day2}.*time=${Latency}ms -> Record
+
+
+
+### Annotation: For constant ping result from Windows CMD.
+
+# 4/21/2023 5:59:38 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:39 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:40 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:41 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:42 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:43 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:44 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:45 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
+# 4/21/2023 5:59:46 PM - Reply from 10.81.121.11: bytes=32 time=1ms TTL=124
