@@ -1,5 +1,5 @@
 __author__ = "Yong Peng"
-__version__ = "1.1"
+__version__ = "1.2"
 
 import pandas as pd
 import os
@@ -124,7 +124,7 @@ class TwoFactorAuth(object):
         if not os.path.exists("./output"):
             os.mkdir("./output")
 
-        failed_list = []
+        failed_list = set()
         list_len = len(self.device_list)
         numb = 0
 
@@ -151,18 +151,22 @@ class TwoFactorAuth(object):
 
             try:
                 for j in cmd_set:
-                    output = nr.run(task=netmiko_send_command, command_string=j)
+                    output = nr.run(task=netmiko_send_command, command_string=j, read_timeout = 300)
                     if output[device_name].failed:
-                        failed_list.append(device_name)
+                        failed_list.add(device_name)
                         print("\nERROR on login or command execution on %s!\n" % device_name)
                         break
 
                     with open("./output/%s.txt" % device_name, "a") as r:
                         r.write(j + ":" + "\n")
                         r.write(output[device_name].result + "\n" + 30 * '#' + "\n" + "\n" + "\n" + "\n")
-                    print(output[device_name].result)
+                    # print(output[device_name].result)
+                    # print_result(output)
+                    print("Data collection has been done on %s\n\n " % device_name)
+
 
             except Exception as error:
+                failed_list.add(device_name)
                 print("ERROR on login or command execution on %s!" % device_name)
 
                 """
@@ -175,3 +179,8 @@ class TwoFactorAuth(object):
                 output = nr.run(task=netmiko_send_command, command_string="show clock")
                 print(output[data[0]["name"]].result)
                 """
+
+            if failed_list:
+                print("Failed to login or execute command on below %i device(s):" % len(failed_list))
+                for k in failed_list:
+                    print(k)
