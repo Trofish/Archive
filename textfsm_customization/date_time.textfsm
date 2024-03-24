@@ -1,29 +1,23 @@
+Value Year (\d{4})
+Value Month (([A-Z]){1}([a-z]){2})
 Value Day (\d{2})
 Value Hour (\d{2})
 Value Min (\d{2})
 Value Sec (\d{2})
+Value Latency ([0-9]{1,}\.?[0-9]*)
 
 Start
- ^[A-Z|a-z]{3}\s*${Day}\s.*${Hour}:${Min}:${Sec} -> Record
-
-
-
-
+ ^[A-Z|a-z]{3}\s${Day}\s${Month}\s${Hour}:${Min}:${Sec}\sUTC\s${Year}: 64 bytes from .*time=${Latency}\sms$$ -> Record
 
 
 
 
 ### Annotation: For constant ping result from Raspberry PI server.
 
-# Thu 16 Mar 2023 12:00:00 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41096 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:01 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41097 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:02 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41098 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:03 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41099 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:04 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41100 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:05 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41101 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:06 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41102 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:07 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41103 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:09 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41104 ttl=246 time=413 ms
-# Thu 16 Mar 2023 12:00:09 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41105 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:10 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41106 ttl=246 time=218 ms
-# Thu 16 Mar 2023 12:00:11 AM PDT: 64 bytes from 172.1x.x.1: icmp_seq=41107 ttl=246 time=219 ms
+# Fri 23 Feb 05:37:33 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=153 ttl=123 time=1.41 ms
+# Fri 23 Feb 05:37:34 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=154 ttl=123 time=1.45 ms
+# Fri 23 Feb 05:37:35 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=155 ttl=123 time=2.88 ms
+# Fri 23 Feb 05:37:36 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=156 ttl=123 time=2.44 ms
+# Fri 23 Feb 05:37:37 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=157 ttl=123 time=2.27 ms
+# Fri 23 Feb 05:37:38 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=158 ttl=123 time=1.23 ms
+# Fri 23 Feb 05:37:39 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=159 ttl=123 time=2.78 ms

@@ -1,0 +1,20 @@
+Value MAC (([0-9]|[a-f]){4}\.([0-9]|[a-f]){4}\.([0-9]|[a-f]){4})
+Value Interface (.*)
+
+
+
+Start
+ ^\s*\d*\s*${MAC}\s*DYNAMIC\s*${Interface} -> Record
+
+
+
+# CSS-RACK1-01#show mac address-table
+#           Mac Address Table
+# -------------------------------------------
+#
+# Vlan    Mac Address       Type        Ports
+# ----    -----------       --------    -----
+#  250    000e.c6df.22c9    DYNAMIC     Tw2/0/25
+#  250    0015.b2af.15b2    DYNAMIC     Tw2/0/34
+#  250    0015.b2af.15ca    DYNAMIC     Tw1/0/7
+#  250    0015.b2af.15cd    DYNAMIC     Tw1/0/7

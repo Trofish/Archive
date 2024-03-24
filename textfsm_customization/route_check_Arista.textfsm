@@ -1,0 +1,31 @@
+Value Dst ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/[0-9]{1,2})
+Value List NEXT_HOP ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3})
+Value CONNECTED (directly connected)
+# Value List Interface (Ethernet[0-9]{1,2}/[0-9]{1})
+
+
+Start
+ ^\s([B|C|S|O]) -> Continue.Record
+ ^\s([B|S])\s.*\s${Dst}.*via\s${NEXT_HOP},.*
+ ^\s*via\s${NEXT_HOP},.*
+ ^\sC\s*${Dst}\sis\s${CONNECTED},.*
+
+
+# For example below:
+
+# B E      10.67.196.0/24 [200/0] via 10.70.255.21, Ethernet27/1
+#                                 via 10.70.255.23, Ethernet28/1
+# B E      10.67.201.0/24 [200/0] via 10.70.255.21, Ethernet27/1
+#                                 via 10.70.255.23, Ethernet28/1
+# B E      10.67.224.0/24 [200/0] via 10.70.255.21, Ethernet27/1
+#                                 via 10.70.255.23, Ethernet28/1
+# B E      10.67.0.0/16 [200/0] via 10.70.255.21, Ethernet27/1
+#                               via 10.70.255.23, Ethernet28/1
+# B E      10.69.0.0/16 [200/0] via 10.70.255.21, Ethernet27/1
+#                               via 10.70.255.23, Ethernet28/1
+# B E      10.70.2.0/24 [200/0] via 10.70.255.1, Ethernet25/1
+#                               via 10.70.255.5, Ethernet26/1
+# B E      10.70.6.0/27 [200/0] via 10.70.255.13, Ethernet13/1
+# B E      10.70.6.32/27 [200/0] via 10.70.255.13, Ethernet13/1
+# B E      10.70.6.64/27 [200/0] via 10.70.255.13, Ethernet13/1
+# B E      10.70.6.96/27 [200/0] via 10.70.255.13, Ethernet13/1

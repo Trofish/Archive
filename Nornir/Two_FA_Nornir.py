@@ -150,11 +150,13 @@ class TwoFactorAuth(object):
             nr = InitNornir(runner=runner, inventory=inventory)
 
             try:
+                flag = True
                 for j in cmd_set:
                     output = nr.run(task=netmiko_send_command, command_string=j, read_timeout = 300)
                     if output[device_name].failed:
                         failed_list.add(device_name)
-                        print("\nERROR on login or command execution on %s!\n" % device_name)
+                        print("ERROR on login or command execution on %s!\n" % device_name)
+                        flag = False
                         break
 
                     with open("./output/%s.txt" % device_name, "a") as r:
@@ -162,6 +164,8 @@ class TwoFactorAuth(object):
                         r.write(output[device_name].result + "\n" + 30 * '#' + "\n" + "\n" + "\n" + "\n")
                     # print(output[device_name].result)
                     # print_result(output)
+
+                if flag:
                     print("Data collection has been done on %s\n\n " % device_name)
 
 
@@ -180,7 +184,9 @@ class TwoFactorAuth(object):
                 print(output[data[0]["name"]].result)
                 """
 
-            if failed_list:
-                print("Failed to login or execute command on below %i device(s):" % len(failed_list))
-                for k in failed_list:
-                    print(k)
+        print("\nAll data collection are done!\n")
+
+        if failed_list:
+            print("Failed to login or execute command on below %i device(s):" % len(failed_list))
+            for k in failed_list:
+                print(k)
