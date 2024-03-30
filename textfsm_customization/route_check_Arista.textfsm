@@ -5,19 +5,15 @@ Value CONNECTED (directly connected)
 
 
 Start
- ^\s([B|C|S|O]) -> Continue.Record
- ^\s([B|S])\s.*\s${Dst}.*via\s${NEXT_HOP},.*
+ ^\s([B|C|S|O|A]) -> Continue.Record
+ ^\s([B|S|O])\s.*\s${Dst}.*via\s${NEXT_HOP},.*
  ^\s*via\s${NEXT_HOP},.*
- ^\sC\s*${Dst}\sis\s${CONNECTED},.*
+ ^\s([A|C])\s.*\s${Dst}\sis\s${CONNECTED},.*
 
 
 # For example below:
 
 # B E      10.67.196.0/24 [200/0] via 10.70.255.21, Ethernet27/1
-#                                 via 10.70.255.23, Ethernet28/1
-# B E      10.67.201.0/24 [200/0] via 10.70.255.21, Ethernet27/1
-#                                 via 10.70.255.23, Ethernet28/1
-# B E      10.67.224.0/24 [200/0] via 10.70.255.21, Ethernet27/1
 #                                 via 10.70.255.23, Ethernet28/1
 # B E      10.67.0.0/16 [200/0] via 10.70.255.21, Ethernet27/1
 #                               via 10.70.255.23, Ethernet28/1
@@ -27,5 +23,11 @@ Start
 #                               via 10.70.255.5, Ethernet26/1
 # B E      10.70.6.0/27 [200/0] via 10.70.255.13, Ethernet13/1
 # B E      10.70.6.32/27 [200/0] via 10.70.255.13, Ethernet13/1
-# B E      10.70.6.64/27 [200/0] via 10.70.255.13, Ethernet13/1
 # B E      10.70.6.96/27 [200/0] via 10.70.255.13, Ethernet13/1
+# A B      10.236.45.0/26 is directly connected, Null0
+# O E2     10.84.155.64/29 [110/1] via 10.40.0.91, Ethernet12/1
+#                                 via 10.40.0.93, Ethernet13/1
+# O IA     10.40.10.0/26 [110/12] via 10.40.0.83, Ethernet7/1
+#                                via 10.40.0.87, Ethernet26/1
+# O        10.40.0.88/31 [110/4] via 10.40.0.91, Ethernet12/1
+# S        10.210.64.0/22 [1/0] via 10.40.0.64, Ethernet19/1
