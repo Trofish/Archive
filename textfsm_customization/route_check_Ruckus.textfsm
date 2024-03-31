@@ -1,11 +1,11 @@
 Value Dst ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/[0-9]{1,2})
 Value List NEXT_HOP ([0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}|DIRECT)
-Value DIRECT (DIRECT)
+# Value DIRECT (DIRECT)
 
 Start
  ^\d -> Continue.Record
  ^\d{1,}\s*${Dst}\s*${NEXT_HOP}.*
- ^\s\s\s\s.*\s*${NEXT_HOP}.* -> Continue
+ ^\s+[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}/[0-9]{1,2}\s+${NEXT_HOP}.* -> Continue
 
 
 
