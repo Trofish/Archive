@@ -1,18 +1,29 @@
 Value Year (\d{4})
 Value Month (([A-Z]){1}([a-z]){2})
-Value Day (\d{2})
+Value Day (\d{1,2})
 Value Hour (\d{2})
 Value Min (\d{2})
 Value Sec (\d{2})
+# Annotate "Noon" if no PM/AM in timestamp.
+# Value Noon ([A|P]M)
 Value Latency ([0-9]{1,}\.?[0-9]*)
 
-Start
- ^[A-Z|a-z]{3}\s${Day}\s${Month}\s${Hour}:${Min}:${Sec}\sUTC\s${Year}: 64 bytes from .*time=${Latency}\sms$$ -> Record
 
+# For the 1st format:
+Start
+ ^[A-Z|a-z]{3}\s+${Day}\s${Month}\s${Hour}:${Min}:${Sec}\s[A-Z]{3}\s${Year}: 64 bytes from .*time=${Latency}\sms$$ -> Record
+
+
+# For the 2nd format:
+# Start
+#  ^[A-Z|a-z]{3}\s+${Day}\s${Month}\s${Year}\s${Hour}:${Min}:${Sec}\s${Noon}\s[A-Z]{3}: 64 bytes from .*time=${Latency}\sms$$ -> Record
 
 
 
 ### Annotation: For constant ping result from Raspberry PI server.
+
+
+### 1st format:
 
 # Fri 23 Feb 05:37:33 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=153 ttl=123 time=1.41 ms
 # Fri 23 Feb 05:37:34 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=154 ttl=123 time=1.45 ms
@@ -21,3 +32,27 @@ Start
 # Fri 23 Feb 05:37:37 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=157 ttl=123 time=2.27 ms
 # Fri 23 Feb 05:37:38 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=158 ttl=123 time=1.23 ms
 # Fri 23 Feb 05:37:39 UTC 2024: 64 bytes from 172.18.209.145: icmp_seq=159 ttl=123 time=2.78 ms
+
+# Tue  2 Jul 03:59:07 CST 2024: 64 bytes from 10.248.2.210: icmp_seq=2 ttl=56 time=211 ms
+# Tue  2 Jul 03:59:08 CST 2024: 64 bytes from 10.248.2.210: icmp_seq=3 ttl=56 time=211 ms
+# Tue  2 Jul 03:59:09 CST 2024: 64 bytes from 10.248.2.210: icmp_seq=4 ttl=56 time=211 ms
+# Tue  2 Jul 03:59:10 CST 2024: 64 bytes from 10.248.2.210: icmp_seq=5 ttl=56 time=211 ms
+
+
+### the 2nd format:
+
+# Thu 04 Jul 2024 11:59:57 AM PDT: 64 bytes from 10.71.4.13: icmp_seq=39043 ttl=56 time=216 ms
+# Thu 04 Jul 2024 11:59:58 AM PDT: 64 bytes from 10.71.4.13: icmp_seq=39044 ttl=56 time=214 ms
+# Thu 04 Jul 2024 11:59:59 AM PDT: 64 bytes from 10.71.4.13: icmp_seq=39045 ttl=56 time=217 ms
+# Thu 04 Jul 2024 12:00:00 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=39046 ttl=56 time=214 ms
+# Thu 04 Jul 2024 12:00:01 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=39047 ttl=56 time=214 ms
+# Thu 04 Jul 2024 12:00:02 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=39048 ttl=56 time=215 ms
+# Thu 04 Jul 2024 12:00:03 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=39049 ttl=56 time=215 ms
+
+# Thu 04 Jul 2024 11:59:56 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=16676 ttl=56 time=213 ms
+# Thu 04 Jul 2024 11:59:57 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=16677 ttl=56 time=215 ms
+# Thu 04 Jul 2024 11:59:58 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=16678 ttl=56 time=213 ms
+# Thu 04 Jul 2024 11:59:59 PM PDT: 64 bytes from 10.71.4.13: icmp_seq=16679 ttl=56 time=213 ms
+# Fri 05 Jul 2024 12:00:00 AM PDT: 64 bytes from 10.71.4.13: icmp_seq=16680 ttl=56 time=214 ms
+# Fri 05 Jul 2024 12:00:01 AM PDT: 64 bytes from 10.71.4.13: icmp_seq=16681 ttl=56 time=216 ms
+# Fri 05 Jul 2024 12:00:02 AM PDT: 64 bytes from 10.71.4.13: icmp_seq=16682 ttl=56 time=213 ms
