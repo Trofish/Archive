@@ -32,10 +32,10 @@ with open("show_cmd.txt", 'r') as f:
 
 
 def send_show_command(devices, commands):
-    # outputPath = 'c:/script/output/' + str(device['host']) + '.txt'
+    # outputPath = './output/' + str(device['host']) + '.txt'
     # result = open(OutputPath, 'w')
-    if not os.path.exists("c:/script/output"):
-        os.mkdir("c:/script/output")
+    if not os.path.exists("./output"):
+        os.mkdir("./output")
 
     flag = True
     output = dict()
@@ -46,7 +46,7 @@ def send_show_command(devices, commands):
                 output[command] = ssh.send_command(command, strip_command=False, strip_prompt=False, read_timeout=20, )
                 # result.write(output + "\n" + 30 * '+' + "\n" + "\n")
 
-        output_path = 'c:/script/output/' + str(devices['host']) + '.txt'
+        output_path = './output/' + str(devices['host']) + '.txt'
         with open(output_path, "w") as f:
             for k, v in output.items():
                 f.write(k + "\n" + v + "\n" + 40 * "#" + "\n\n\n")
